@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class StringManager {
@@ -64,19 +63,19 @@ public class StringManager {
 	}
 	public static void printTable() {
 		sb = new StringBuilder();
-		Iterator<String> iter = si.iterator();
-		while(iter.hasNext()) {
-			String iterStr = iter.next();
-			for (int i = 0; i < ((String) iterStr).length(); i ++) {
+		System.out.println("----------------------------------");
+		for (String str : si) {
+			for (int i = 0; i < ((String) str).length(); i ++) {
 				if ((i+1) % k != 0 || i == 0)
-					sb.append(((String) iterStr).charAt(i));
+					sb.append(((String) str).charAt(i));
 				else
 					sb.append(c);
 				if (Main.debug)
 					System.out.println(sb);
 			}
-			System.out.println(iterStr);
+			System.out.println(str);
 			System.out.println(sb.toString());
+			System.out.println("----------------------------------");
 			sb = new StringBuilder();
 		}
 	}
